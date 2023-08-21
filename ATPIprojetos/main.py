@@ -1,10 +1,16 @@
+import time
 import pandas as pd
 import streamlit as st
 from PIL import Image
 import datetime as dt
+import asyncio
 
 logoATPI = Image.open("ATPIprojetos/Imagens/Logo ATPI 1.jpg")
+# logoATPI = Image.open("./Imagens/Logo ATPI 1.jpg")
+pontoSaidaCentro = Image.open("ATPIprojetos/Imagens/CemiterioMunicipal.png")
+# pontoSaidaCentro = Image.open("./Imagens/CemiterioMunicipal.png")
 
+diasSemana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
 st.set_page_config(
     page_title="ATPI Projetos",
     layout="wide",
@@ -12,6 +18,7 @@ st.set_page_config(
     page_icon=logoATPI
 )
 st.markdown("# **HORÁRIOS** VIA C1, N1, N2, N3")
+st.markdown(f"## DATA HOJE: **{dt.datetime.now().strftime('%d/%m/%Y')}** - {diasSemana[dt.datetime.today().weekday()]}")
 
 localizacao, identificacao, preco, horarios, download_horario = st.tabs(
     [
@@ -26,11 +33,11 @@ with localizacao:
     st.title("LOCALIZAÇÃO")
     st.subheader(
         "Ponto de saída: Centro de Petrolina - PE, em frente ao [Cemitério Central Campo Das Flores](https://goo.gl/maps/doB7CnkYnSDKHtz26)")
-    st.image(Image.open("ATPIprojetos/Imagens/CemiterioMunicipal.png"))
+    st.image(pontoSaidaCentro)
 
 with identificacao:
     st.markdown("# COMO IDENTIFICAR OS CARROS DO PROJETO")
-    st.image(Image.open("ATPIprojetos/Imagens/Logo ATPI 1.jpg"))
+    st.image(logoATPI)
     st.markdown("#### Todos os carros devem mostrar no para-brisa quais os projetos que ele percorre,"
                 " além de apresentar na lateral uma placa que identifica a empresa do carro e os projetos.")
     st.markdown("#### No caso de duvida pode-se perguntar ao motorista do carro.")
@@ -41,8 +48,9 @@ with preco:
                 " o valor da tarifa do transporte coletivo urbano de passageiros no valor"
                 " de R$ 8,00 da ATPI nos Projetos N1, N2, N3 e C1. Confira o decreto "
                 "[AQUI](https://petrolina.pe.gov.br/wp-content/uploads/2023/02/decreto-007.pdf)")
+
 with horarios:
-    segunda_sexta, sabado, domingo, feriado = st.columns(4)
+    segunda_sexta, sabado, domingo, feriados, teste = st.columns(5)
 
     with segunda_sexta:
         st.markdown("# Segunda à Sexta")
@@ -96,14 +104,14 @@ with horarios:
             )
 
 
-        horarios_segunda_sexta = carregar_horarios_segunda_sexta()
-        horarios_segunda_sexta["Horário"] = pd.to_datetime(horarios_segunda_sexta["Horário"], format="%H:%M").dt.time
+        horario_segunda_sexta = carregar_horarios_segunda_sexta()
+        horario_segunda_sexta["Horário"] = pd.to_datetime(horario_segunda_sexta["Horário"], format="%H:%M").dt.time
         # st.dataframe(
-        #     horarios_segunda_sexta,
+        #     horario_segunda_sexta,
         #     use_container_width=True,
         #     hide_index=True,
         # )
-        st.table(horarios_segunda_sexta.style.set_properties(
+        st.table(horario_segunda_sexta.style.set_properties(
             **{'background-color': 'white',
                'color': 'red',
                }
@@ -169,6 +177,7 @@ with horarios:
                }
         ),
         )
+
     with domingo:
         st.markdown("# Domingo")
 
@@ -210,3 +219,53 @@ with horarios:
                    }
             )
         )
+
+    with feriados:
+        st.markdown("# Feriados")
+
+
+        @st.cache_data
+        def carregar_horarios_feriados():
+            return pd.DataFrame(
+                columns=["Horário", "Rota"], data={
+                    "Horário": [
+                        "06:00",
+                        "09:00",
+                        "12:00",
+                        "15:00",
+                        "18:00",
+
+                    ],
+                    'Rota': [
+                        "Via N2",
+                        "",
+                        "Via N2",
+                        "",
+                        "Via N2"
+                    ]
+                }
+            )
+
+
+        horarios_feriados = carregar_horarios_feriados()
+        horarios_feriados["Horário"] = pd.to_datetime(horarios_feriados["Horário"], format="%H:%M").dt.time
+        # st.dataframe(
+        #     horarios_domingo,
+        #     use_container_width=True,
+        #     hide_index=True
+        # )
+        st.table(
+            horarios_feriados.style.set_properties(
+                **{'background-color': 'white',
+                   'color': 'teal',
+                   }
+            )
+        )
+
+if st.text_input("Usuario") == st.secrets.usuario and st.text_input("Senha") == st.secrets.senha_usuario:
+    st.dataframe(
+        pd.concat(
+            [horario_segunda_sexta, horarios_sabado, horarios_domingo, horarios_feriados],
+            keys=['Seg', "Sáb", "Dom", "Fer"]
+        )
+    )
