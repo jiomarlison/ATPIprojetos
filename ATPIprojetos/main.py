@@ -3,10 +3,10 @@ import streamlit as st
 from PIL import Image
 import datetime as dt
 
-# logoATPI = Image.open("ATPIprojetos/Imagens/Logo ATPI 1.jpg")
-logoATPI = Image.open("./Imagens/Logo ATPI 1.jpg")
-# pontoSaidaCentro = Image.open("ATPIprojetos/Imagens/CemiterioMunicipal.png")
-pontoSaidaCentro = Image.open("./Imagens/CemiterioMunicipal.png")
+logoATPI = Image.open("ATPIprojetos/Imagens/Logo ATPI 1.jpg")
+# logoATPI = Image.open("./Imagens/Logo ATPI 1.jpg")
+pontoSaidaCentro = Image.open("ATPIprojetos/Imagens/CemiterioMunicipal.png")
+# pontoSaidaCentro = Image.open("./Imagens/CemiterioMunicipal.png")
 
 diasSemana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
 st.set_page_config(
