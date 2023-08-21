@@ -3,7 +3,7 @@ import streamlit as st
 from PIL import Image
 import datetime as dt
 
-logoATPI = Image.open("Imagens/Logo ATPI 1.jpg")
+logoATPI = Image.open("ATPIprojetos/Imagens/Logo ATPI 1.jpg")
 
 st.set_page_config(
     page_title="ATPI Projetos",
@@ -26,11 +26,11 @@ with localizacao:
     st.title("LOCALIZAÇÃO")
     st.subheader(
         "Ponto de saída: Centro de Petrolina - PE, em frente ao [Cemitério Central Campo Das Flores](https://goo.gl/maps/doB7CnkYnSDKHtz26)")
-    st.image(Image.open("Imagens/CemiterioMunicipal.png"))
+    st.image(Image.open("ATPIprojetos/Imagens/CemiterioMunicipal.png"))
 
 with identificacao:
     st.markdown("# COMO IDENTIFICAR OS CARROS DO PROJETO")
-    st.image(Image.open("Imagens/Logo ATPI 1.jpg"))
+    st.image(Image.open("ATPIprojetos/Imagens/Logo ATPI 1.jpg"))
     st.markdown("#### Todos os carros devem mostrar no para-brisa quais os projetos que ele percorre,"
                 " além de apresentar na lateral uma placa que identifica a empresa do carro e os projetos.")
     st.markdown("#### No caso de duvida pode-se perguntar ao motorista do carro.")
