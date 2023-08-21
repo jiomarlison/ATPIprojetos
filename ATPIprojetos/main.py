@@ -1,14 +1,12 @@
-import time
 import pandas as pd
 import streamlit as st
 from PIL import Image
 import datetime as dt
-import asyncio
 
-logoATPI = Image.open("ATPIprojetos/Imagens/Logo ATPI 1.jpg")
-# logoATPI = Image.open("./Imagens/Logo ATPI 1.jpg")
-pontoSaidaCentro = Image.open("ATPIprojetos/Imagens/CemiterioMunicipal.png")
-# pontoSaidaCentro = Image.open("./Imagens/CemiterioMunicipal.png")
+# logoATPI = Image.open("ATPIprojetos/Imagens/Logo ATPI 1.jpg")
+logoATPI = Image.open("./Imagens/Logo ATPI 1.jpg")
+# pontoSaidaCentro = Image.open("ATPIprojetos/Imagens/CemiterioMunicipal.png")
+pontoSaidaCentro = Image.open("./Imagens/CemiterioMunicipal.png")
 
 diasSemana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
 st.set_page_config(
@@ -262,11 +260,12 @@ with horarios:
             )
         )
 
-if st.text_input("Usuario") == st.secrets.usuario and st.text_input("Senha") == st.secrets.senha_usuario:
-    st.dataframe(
-        pd.concat(
-            [horario_segunda_sexta, horarios_sabado, horarios_domingo, horarios_feriados],
-            keys=['Seg', "Sáb", "Dom", "Fer"]
-        )
-    )
 
+def horario_completo():
+    if st.text_input("Usuario") == st.secrets.usuario and st.text_input("Senha") == st.secrets.senha_usuario:
+        st.dataframe(
+            pd.concat(
+                [horario_segunda_sexta, horarios_sabado, horarios_domingo, horarios_feriados],
+                keys=['Seg', "Sáb", "Dom", "Fer"]
+            )
+        )
