@@ -267,5 +267,8 @@ if st.text_input("Usuario") == st.secrets.usuario and st.text_input("Senha") == 
         pd.concat(
             [horario_segunda_sexta, horarios_sabado, horarios_domingo, horarios_feriados],
             keys=['Seg', "Sáb", "Dom", "Fer"]
-        )
+        ),
+        use_container_width=True,
+        hide_index=True
     )
+
