@@ -18,6 +18,9 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+st.sidebar.markdown(":red[**Feito Por**]")
+st.sidebar.markdown("[jiomarlison D. Souza](https://www.linkedin.com/in/jiomarlison-dias-souza/)")
+
 st.markdown("# **HORÁRIOS** VIA C1, N1, N2, N3")
 st.markdown(f"## DATA HOJE: **{dt.datetime.now().strftime('%d/%m/%Y')}** - {diasSemana[dt.datetime.today().weekday()]}")
 
