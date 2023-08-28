@@ -4,6 +4,8 @@ import streamlit as st
 from pandas.io.formats.style import Styler
 
 st.markdown("# :blue[Horários Completo ATPI Projetos]")
+st.sidebar.markdown(":red[**Feito Por**]")
+st.sidebar.markdown("[jiomarlison D. Souza](https://www.linkedin.com/in/jiomarlison-dias-souza/)")
 
 
 @st.cache_data
