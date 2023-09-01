@@ -20,7 +20,7 @@ st.set_page_config(
 )
 st.sidebar.markdown(":red[**Feito Por**]")
 st.sidebar.markdown("[jiomarlison D. Souza](https://www.linkedin.com/in/jiomarlison-dias-souza/)")
-st.sidebar.markdown("[Projeto Maria Tereza KM-25](www.projetomariatereza.streamlit.app)")
+st.sidebar.markdown("[Projeto Maria Tereza KM-25](https://projetomariatereza.streamlit.app/)")
 
 st.markdown("# **HORÁRIOS** VIA C1, N1, N2, N3")
 st.markdown(f"## DATA HOJE: **{dt.datetime.now().strftime('%d/%m/%Y')}** - {diasSemana[dt.datetime.today().weekday()]}")
