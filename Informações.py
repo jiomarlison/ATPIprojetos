@@ -20,6 +20,7 @@ st.set_page_config(
 )
 st.sidebar.markdown(":red[**Feito Por**]")
 st.sidebar.markdown("[jiomarlison D. Souza](https://www.linkedin.com/in/jiomarlison-dias-souza/)")
+st.sidebar.markdown("[Projeto Maria Tereza KM-25](https://www.projetomariatereza.streamlit.app)")
 
 st.markdown("# **HORÁRIOS** VIA C1, N1, N2, N3")
 st.markdown(f"## DATA HOJE: **{dt.datetime.now().strftime('%d/%m/%Y')}** - {diasSemana[dt.datetime.today().weekday()]}")
@@ -265,4 +266,3 @@ with preco:
                 " o valor da tarifa do transporte coletivo urbano de passageiros no valor"
                 " de R$ 8,00 da ATPI nos Projetos N1, N2, N3 e C1. Confira o decreto "
                 "[AQUI](https://petrolina.pe.gov.br/wp-content/uploads/2023/02/decreto-007.pdf)")
-st.sidebar.markdown("[Projeto Maria Tereza KM-25](projetomariatereza.streamlit.app)")
