@@ -4,14 +4,9 @@ from PIL import Image
 import datetime as dt
 
 try:
+    logoATPI = Image.open("../Imagens/Logo ATPI 1.jpg")
+except:
     logoATPI = Image.open("Imagens/Logo ATPI 1.jpg")
-except:
-    logoATPI = Image.open("./Imagens/Logo ATPI 1.jpg")
-
-try:
-    pontoSaidaCentro = Image.open("Imagens/CemiterioMunicipal.png")
-except:
-    pontoSaidaCentro = Image.open("./Imagens/CemiterioMunicipal.png")
 
 diasSemana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
 st.set_page_config(
@@ -20,18 +15,12 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-st.sidebar.markdown(":red[**Feito Por**]")
-st.sidebar.markdown("[jiomarlison D. Souza](https://www.linkedin.com/in/jiomarlison-dias-souza/)")
+st.header("**HORÁRIOS** VIA C1, N1, N2, N3", anchor="inico")
 
-st.markdown("# **HORÁRIOS** VIA C1, N1, N2, N3")
-st.markdown(f"## DATA HOJE: **{dt.datetime.now().strftime('%d/%m/%Y')}** - {diasSemana[dt.datetime.today().weekday()]}")
-
-horarios, localizacao, identificacao, preco = st.tabs(
+horarios, identificacao = st.tabs(
     [
         ":red[**Horário**]",
-        ":blue[**Localização**]",
         ":red[**Identificação dos Carros**]",
-        ":blue[**Preço**]"
 
     ]
 )
@@ -248,12 +237,6 @@ with horarios:
             )
         )
 
-with localizacao:
-    st.title("LOCALIZAÇÃO")
-    st.subheader(
-        "Ponto de saída: Centro de Petrolina - PE, em frente ao [Cemitério Central Campo Das Flores](https://goo.gl/maps/doB7CnkYnSDKHtz26)")
-    st.image(pontoSaidaCentro)
-
 with identificacao:
     st.markdown("# COMO IDENTIFICAR OS CARROS DO PROJETO")
     st.image(logoATPI)
@@ -261,9 +244,12 @@ with identificacao:
                 " além de apresentar na lateral uma placa que identifica a empresa do carro e os projetos.")
     st.markdown("#### No caso de duvida pode-se perguntar ao motorista do carro.")
 
-with preco:
-    st.markdown("# TABELA DE PREÇOS")
-    st.markdown("#### Seguindo DECRETO Nº 007/2023 da prefeitura de Petrolina estabelece"
-                " o valor da tarifa do transporte coletivo urbano de passageiros no valor"
-                " de R$ 8,00 da ATPI nos Projetos N1, N2, N3 e C1. Confira o decreto "
-                "[AQUI](https://petrolina.pe.gov.br/wp-content/uploads/2023/02/decreto-007.pdf)")
+
+
+
+
+
+
+
+from creditos import credito
+credito()

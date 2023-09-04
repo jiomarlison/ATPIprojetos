@@ -1,7 +1,13 @@
 import pandas as pd
 from io import BytesIO
 import streamlit as st
-from pandas.io.formats.style import Styler
+
+st.set_page_config(
+    page_title="Baixar Horários",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    page_icon="📁"
+)
 
 st.markdown("# :blue[Horários Completo ATPI Projetos]")
 
@@ -156,3 +162,7 @@ tabela_horario_completo = baixarPlanilha(horario_completo)
 st.header("Baixar Arquivo Aqui", anchor="baixar_arquivo")
 st.download_button(label="📥 :red[Baixar Planilha Todos Horários]", data=tabela_horario_completo,
                    file_name='Horário ATPI Transporte.xlsx')
+
+
+from creditos import credito
+credito()
