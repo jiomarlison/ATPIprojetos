@@ -110,3 +110,5 @@ if dias_horarios_selecionados is not None:
             unsafe_allow_html=True
         )
         st.divider()
+from creditos import credito
+credito()
