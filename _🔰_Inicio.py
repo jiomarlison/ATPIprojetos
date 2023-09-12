@@ -32,4 +32,6 @@ st.markdown(
 st.markdown(":orange[Clique nos link abaixo para abrir uma nova aba com os horários de uma determinada empresa "
             "ou use o menu do lado esquerdo caso queira ficar nessa mesma página.]")
 st.markdown("[ATPI_Projetos](/ATPI_Projetos)")
+st.markdown("[Projeto Maria Tereza KM-25](/Maria_Tereza_KM_25)")
+
 credito()
