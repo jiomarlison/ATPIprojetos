@@ -110,8 +110,3 @@ if dias_horarios_selecionados is not None:
             unsafe_allow_html=True
         )
         st.divider()
-        # st.download_button("Baixar JSON do Horário",
-        #                    file_name=f"Horário KM-25 {[x for x in dias_horarios_selecionados]}.json",
-        #                    data=horario_segunda_sexta.to_json())
-        st.sidebar.markdown("Feito Por [Jiomarlison D. Souza]()")
-        st.json(horario_segunda_sexta.to_dict(into=OrderedDict))
