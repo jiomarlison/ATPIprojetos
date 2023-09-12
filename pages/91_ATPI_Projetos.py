@@ -17,15 +17,16 @@ st.set_page_config(
 
 st.header("**HORÁRIOS** VIA C1, N1, N2, N3", anchor="inico")
 
-horarios, identificacao = st.tabs(
+horarios, identificacao, horarios_especiais = st.tabs(
     [
         ":red[**Horário**]",
         ":red[**Identificação dos Carros**]",
+        ":red[**HORÁRIOS ESPECIAIS**]",
 
     ]
 )
 with horarios:
-    segunda_sexta, sabado, domingo, feriados, teste = st.columns(5)
+    segunda_sexta, sabado, domingo, feriados = st.columns(4)
 
     with segunda_sexta:
         st.markdown("# Segunda à Sexta")
@@ -81,11 +82,6 @@ with horarios:
 
         horario_segunda_sexta = carregar_horarios_segunda_sexta()
         horario_segunda_sexta["Horário"] = pd.to_datetime(horario_segunda_sexta["Horário"], format="%H:%M").dt.time
-        # st.dataframe(
-        #     horario_segunda_sexta,
-        #     use_container_width=True,
-        #     hide_index=True,
-        # )
         st.table(horario_segunda_sexta.style.set_properties(
             **{'background-color': 'white',
                'color': 'red',
@@ -141,11 +137,7 @@ with horarios:
 
         horarios_sabado = carregar_horarios_sabado()
         horarios_sabado["Horário"] = pd.to_datetime(horarios_sabado["Horário"], format="%H:%M").dt.time
-        # st.dataframe(
-        #     horarios_sabado,
-        #     use_container_width=True,
-        #     hide_index=True
-        # )
+
         st.table(horarios_sabado.style.set_properties(
             **{'background-color': 'white',
                'color': 'green',
@@ -182,11 +174,7 @@ with horarios:
 
         horarios_domingo = carregar_horarios_domingo()
         horarios_domingo["Horário"] = pd.to_datetime(horarios_domingo["Horário"], format="%H:%M").dt.time
-        # st.dataframe(
-        #     horarios_domingo,
-        #     use_container_width=True,
-        #     hide_index=True
-        # )
+
         st.table(
             horarios_domingo.style.set_properties(
                 **{'background-color': 'white',
@@ -245,7 +233,24 @@ with identificacao:
     st.markdown("#### No caso de duvida pode-se perguntar ao motorista do carro.")
 
 
+with horarios_especiais:
+    st.markdown(
+        """
+**TODOS OS HORÁRIOS SAEM DO CENTRO DE PETROLINA, NO PONTO DE FRENTE AO CEMITÉRIO, EXCETO:**\n
 
+HORÁRIO: SEGUNDA a SEXTA, 05:45 SAI DO PROJETO N1 \n
+HORÁRIO: SEGUNDA a SEXTA, 06:10 SAÍDA LOTE DE TULIO PRÓXIMO AO PROJETO N1\n
+HORÁRIO: SEGUNDA a SEXTA, 22:10 SAI DE FRENTE A FACULDADE(FACAPE)\n
+**OBSERVAÇÃO**\n
+*OS HORÁRIOS DAS 22:10 NOS DIAS DE SEMANA SÓ FUNCIONA DURANTE O PERÍODO DE AULA DAS FACULDADES 
+E DIAS QUE SE TEM AULAS, EM CASO DE FERIADOS PODE NÃO HAVER ESSE HORÁRIO, 
+PARA SABER MAIS SOBRE ENTRE EM CONTATO:*\n
+**CONTATOS**\n
+SECRETARIA(Karla): [(87) 98112-5010](https://wa.me/5587981125010)\n
+PRESIDENTE(João): [(87) 98861-3549](https://wa.me/5587988613549)\n
+VICE-PRESIDENTE(Antônio): [(87) 99150-4061](https://wa.me/5587991504061)\n
+        """
+    )
 
 
 
