@@ -77,7 +77,7 @@ with st.expander("Lista dos Feriados", expanded=True):
     st.dataframe(
         calendario_feriados.loc[calendario_feriados['Feriado'] != ""],
         use_container_width=True,
-        hide_index=True,
+        hide_index=False,
     )
 with st.expander("Filtrar Feriados por Mês"):
     st.radio("Filtrar por mês", options=calendario_feriados['Mês'].unique(), key='mes_selecionado', horizontal=True,
@@ -85,7 +85,7 @@ with st.expander("Filtrar Feriados por Mês"):
     st.dataframe(
         calendario_feriados.loc[calendario_feriados["Mês"] == st.session_state.mes_selecionado],
         use_container_width=True,
-        hide_index=True,
+        hide_index=False,
     )
 
 # st.button("Cria Banco de Dados dos Feriados", on_click=banco_de_dados_feriados)
