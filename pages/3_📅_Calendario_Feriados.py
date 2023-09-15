@@ -60,8 +60,17 @@ calendario_feriados = calendario_feriados.replace(
      'December'],
     lista_meses
 )
+calendario_feriados["Feriado"].loc[calendario_feriados['Data'] == f'01/01/{ano_atual}'] = "Confraternização Universal"
+calendario_feriados["Feriado"].loc[calendario_feriados['Data'] == f'21/02/{ano_atual}'] = "Carnaval"
+calendario_feriados["Feriado"].loc[calendario_feriados['Data'] == f'06/03/{ano_atual}'] = "Revolução Pernambucana"
+calendario_feriados["Feriado"].loc[calendario_feriados['Data'] == f'21/04/{ano_atual}'] = "Tiradentes"
+calendario_feriados["Feriado"].loc[calendario_feriados['Data'] == f'01/05/{ano_atual}'] = "Dia do Trabalho"
+calendario_feriados["Feriado"].loc[calendario_feriados['Data'] == f'24/06/{ano_atual}'] = "Dia de São João"
+calendario_feriados["Feriado"].loc[calendario_feriados['Data'] == f'15/08/{ano_atual}'] = "Nossa Senhora Rainha dos Anjos"
 
 calendario_feriados["Feriado"].loc[calendario_feriados['Data'] == f'07/09/{ano_atual}'] = "Independencia do Brasil"
+calendario_feriados["Feriado"].loc[calendario_feriados['Data'] == f'21/09/{ano_atual}'] = "Aniversario da Cidade"
+
 calendario_feriados["Feriado"].loc[calendario_feriados['Data'] == f'12/10/{ano_atual}'] = "Nossa Senhora Aparecida"
 calendario_feriados["Feriado"].loc[calendario_feriados['Data'] == f'02/11/{ano_atual}'] = "Finados"
 calendario_feriados["Feriado"].loc[calendario_feriados['Data'] == f'15/11/{ano_atual}'] = "Proclamação da Republica"
