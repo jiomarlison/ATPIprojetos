@@ -90,10 +90,11 @@ calendario_feriados = calendario_feriados
 lista_datas_feriados = pd.DataFrame(calendario_feriados.loc[calendario_feriados['Feriado'] != ""]).to_dict(orient='records')
 lista = []
 for x, y in enumerate(lista_datas_feriados):
-    lista.append(lista_datas_feriados[x]["Data"])
-if f'{dia_atual}/{mes_atual}{ano_atual}]' in lista:
+    lista.append([lista_datas_feriados[x]["Data"], lista_datas_feriados[x]["Feriado"]])
+if f'{dia_atual}/{mes_atual}{ano_atual}]' not in lista:
     st.subheader(
-        f"Data: :blue[{dia_atual}] de :red[{lista_meses[mes_atual - 1]}] de :green[{ano_atual}], Horário de Feriado")
+        f"Data: :blue[{dia_atual}] de :red[{lista_meses[mes_atual - 1]}] de :green[{ano_atual}], :orange[*Horário de Feriado*]")
+    st.dataframe(data=calendario_feriados.loc[calendario_feriados['Data'] == f"{dia_atual}/{mes_atual}{ano_atual}"], use_container_width=True, hide_index=True)
 else:
     st.subheader(
         f"Data: :blue[{dia_atual}]"
@@ -101,7 +102,7 @@ else:
         f" de :green[{ano_atual}],"
         f" Horário de :orange[*{lista_dias_semana[datetime.today().weekday() + 1]}*]")
 
-with st.expander("Lista dos Feriados", expanded=True):
+with st.expander("Lista dos Feriados", expanded=False):
     st.dataframe(
         calendario_feriados.loc[calendario_feriados['Feriado'] != ""],
         use_container_width=True,
