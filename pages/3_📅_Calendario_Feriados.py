@@ -91,7 +91,7 @@ lista_datas_feriados = pd.DataFrame(calendario_feriados.loc[calendario_feriados[
 lista = []
 for x, y in enumerate(lista_datas_feriados):
     lista.append([lista_datas_feriados[x]["Data"], lista_datas_feriados[x]["Feriado"]])
-if f'{dia_atual}/{mes_atual}{ano_atual}]' not in lista:
+if f'{dia_atual}/{mes_atual}{ano_atual}]' in lista:
     st.subheader(
         f"Data: :blue[{dia_atual}] de :red[{lista_meses[mes_atual - 1]}] de :green[{ano_atual}], :orange[*Horário de Feriado*]")
     st.dataframe(data=calendario_feriados.loc[calendario_feriados['Data'] == f"{dia_atual}/{mes_atual}{ano_atual}"], use_container_width=True, hide_index=True)
