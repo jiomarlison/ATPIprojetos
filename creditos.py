@@ -11,4 +11,4 @@ def credito():
 
 
 
-    st.sidebar.subheader('Site feito por [Jiomarlison Dias Souza](https://wa.me/5587981491787)', divider="rainbow")
+    st.sidebar.subheader('Site feito por [Jiomarlison Dias Souza](https://www.linkedin.com/in/jiomarlison-dias-souza)', divider="rainbow")
