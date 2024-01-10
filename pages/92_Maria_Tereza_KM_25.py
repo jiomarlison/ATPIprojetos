@@ -91,24 +91,24 @@ if dias_horarios_selecionados is not None:
                 ]
         st.markdown(horario_segunda_sexta.to_html(), unsafe_allow_html=True)
         st.divider()
-        st.title(":checkered_flag: Filtar Por Destino")
-        filtroDestino = st.radio(
-            "Selecione o destino",
-            options=
-            set(
-                horario_segunda_sexta["Horário Proj. Maria Tereza KM-25", 'SEGUNDA À SEXTA', 'Petrolina', "Área"]
-            )
-            ,
-            horizontal=True
-        )
-        st.write(
-            pd.DataFrame(horario_segunda_sexta["Horário Proj. Maria Tereza KM-25", 'SEGUNDA À SEXTA'].loc[
-                             horario_segunda_sexta[
-                                 "Horário Proj. Maria Tereza KM-25", 'SEGUNDA À SEXTA', 'Petrolina' or "KM-25", "Área"]
-                             == filtroDestino
-                             ]).to_html(),
-            unsafe_allow_html=True
-        )
-        st.divider()
+        # st.title(":checkered_flag: Filtar Por Destino")
+        # filtroDestino = st.radio(
+        #     "Selecione o destino",
+        #     options=
+        #     set(
+        #         horario_segunda_sexta["Horário Proj. Maria Tereza KM-25", 'SEGUNDA À SEXTA', 'Petrolina', "Área"]
+        #     )
+        #     ,
+        #     horizontal=True
+        # )
+        # st.write(
+        #     pd.DataFrame(horario_segunda_sexta["Horário Proj. Maria Tereza KM-25", 'SEGUNDA À SEXTA'].loc[
+        #                      horario_segunda_sexta[
+        #                          "Horário Proj. Maria Tereza KM-25", 'SEGUNDA À SEXTA', 'Petrolina' or "KM-25", "Área"]
+        #                      == filtroDestino
+        #                      ]).to_html(),
+        #     unsafe_allow_html=True
+        # )
+        # st.divider()
 from creditos import credito
 credito()
