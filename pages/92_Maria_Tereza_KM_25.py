@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
-import datetime as dt
 from datetime import *
-from collections import OrderedDict, defaultdict
 
 st.set_page_config(
     page_title="Horarios Maria Tereza KM-25",

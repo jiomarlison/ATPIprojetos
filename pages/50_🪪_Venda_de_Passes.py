@@ -1,5 +1,6 @@
 from creditos import credito
 import streamlit as st
+
 st.set_page_config(
     page_title="Venda de Passes",
     layout="wide",

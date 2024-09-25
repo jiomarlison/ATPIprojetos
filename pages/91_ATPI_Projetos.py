@@ -1,7 +1,6 @@
 import pandas as pd
 import streamlit as st
 from PIL import Image
-import datetime as dt
 
 try:
     logoATPI = Image.open("../Imagens/Logo ATPI 1.jpg")
